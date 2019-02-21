@@ -76,11 +76,10 @@ public class SEcoTCPNB {
                         }
                         byte[] mm = datos.getBytes();
                         System.out.println("Enviando eco de " + mm.length + " bytes...");
-                        b2.ByteBuffer.wrap(mm);
+                        b2=ByteBuffer.wrap(mm);
                         ch.write(b2);
                         k.interestOps(SelectionKey.OP_READ);
                         continue;
-
                     }
                 }
             }
