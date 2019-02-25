@@ -21,10 +21,12 @@ public class CEcoTCPB {
             //Solicitamos la dirección de dirección
             System.out.printf("Escribe la dirección del Servidor: ");
             //Se lee como cadena de carácteres 
-            String host = bufferedReader.readLine();
+            //String host = Integer.parseInt(bufferedReader.readLine());
+            String host = "127.0.0.1";
             //Pedimos el número de puerto como entero
             System.out.printf("\n\nEscriba el puerto: ");
-            int pto = Integer.parseInt(bufferedReader.readLine());
+            //int pto = Integer.parseInt(bufferedReader.readLine());
+            int pto = 1234;
             bufferedReader.close();
             //Creamos el socket y nos conectamos
             Socket cl = new Socket(host, pto);
@@ -33,17 +35,17 @@ public class CEcoTCPB {
             PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(cl.getOutputStream()));
 
             //Nos conectamos
-            String mensaje = bufferedReader1.readLine();
-            System.out.println("Recibimos un mensaje desde el servidor");
-            System.out.println("Mensaje: " + mensaje);
-            bufferedReader1.close();
-            String res = mensaje + " cliente";
+//            String mensaje = bufferedReader1.readLine();
+//            System.out.println("Recibimos un mensaje desde el servidor");
+//            System.out.println("Mensaje: " + mensaje);
+//            bufferedReader1.close();
+            
+            String res =  "Es un saludo de cliente";
             printWriter.print(res);
             printWriter.flush();
             //Cerramos flujo y socket
-            
-            
             printWriter.close();
+            
             cl.close();
         } catch (Exception e) {
             e.printStackTrace();

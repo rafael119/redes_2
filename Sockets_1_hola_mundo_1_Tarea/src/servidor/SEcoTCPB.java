@@ -26,22 +26,21 @@ public class SEcoTCPB {
                 //En el momento que ya se conecto un socket se crea un Socket
                 Socket cl = s.accept();
                 System.out.println("Conexión establecida desde: " + cl.getInetAddress() + " : " + cl.getPort());
-                String mensaje = "Hola mundo";
+                String mensaje = "Respuesta del servidor";
                 //Nuestro buffer de salida lo ligamos a un OutputStreamWriter
                 PrintWriter printWriter = new PrintWriter(new OutputStreamWriter(cl.getOutputStream()));
                 BufferedReader bufferedReader1 = new BufferedReader(new InputStreamReader(cl.getInputStream()));
                 //Se envía el mensaje
-                printWriter.print(mensaje);
+               // printWriter.print(mensaje);
                 //Se limpia el flujo
-                printWriter.flush();
+                //printWriter.flush();
                 
 
                 String msj = bufferedReader1.readLine();
-                System.out.println("Recibimos un mensaje desde el servidor");
+                System.out.println("Recibimos un mensaje desde el cliente");
                 System.out.println("Mensaje: " + msj);
-                printWriter.close();
                 bufferedReader1.close();
-               
+               //printWriter.close();
                 cl.close();
             }
         } catch (Exception e) {
